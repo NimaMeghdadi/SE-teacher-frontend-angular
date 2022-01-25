@@ -1,0 +1,47 @@
+#login {
+  ::ng-deep mat-tab-header.mat-tab-header {
+    display: none;
+  }
+}
+.login {
+  display: flex;
+  height: 100%;
+  .login-card {
+    margin: auto;
+    margin-top: 5vh;
+    height: 480px;
+    width: 300px;
+    padding: 3em 2em;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: -1px 4px 28px 0px rgb(0 0 0 / 75%);
+  }
+}
+mat-tab-group {
+  height: 100%;
+}
+
+mat-tab {
+  height: 100%;
+}
+
+@keyframes slideForward {
+  from {
+    width: 300px;
+  }
+  to {
+    width: 700px;
+  }
+}
+
+@keyframes slideBack {
+  from {
+    width: 700px;
+  }
+  to {
+    width: 300px;
+  }
+}
+
+#login ::ng-deep .mat-tab-body-content {
+  height: auto !important;
+}

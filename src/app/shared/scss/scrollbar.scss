@@ -1,0 +1,48 @@
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+  background-color: #fbb03b;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgb(42 66 84);
+}
+
+::-webkit-scrollbar-track {
+  background: #efefef;
+  border-radius: 4px;
+}
+
+
+snack-bar-container.red-snackbar {
+  background: #bf360c;
+}
+
+snack-bar-container.yellow-snackbar {
+  background: #f57f17;
+}
+
+snack-bar-container.green-snackbar {
+  background: #004d40;
+}
+
+snack-bar-container.default-snackbar {
+  background: #424242;
+}
+
+.red-snackbar .mat-simple-snackbar-action {
+  color: white !important;
+}
+
+.yellow-snackbar .mat-simple-snackbar-action {
+  color: rgb(95, 50, 13) !important;
+}
+
+.green-snackbar .mat-simple-snackbar-action {
+  color: white !important;
+}
+
+.default-snackbar .mat-simple-snackbar-action {
+  color: white !important;
+}

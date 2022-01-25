@@ -1,0 +1,86 @@
+<div class="mt-50">
+  <mat-toolbar class="toolbar">
+    <mat-toolbar-row> Register </mat-toolbar-row>
+  </mat-toolbar>
+  <form [formGroup]="form" class="form">
+    <mat-form-field class="full-width">
+      <input
+        matInput
+        placeholder="First Name"
+        formControlName="FirstName"
+        type="text"
+        (keydown)="onKeyDown($event)"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input
+        matInput
+        placeholder="Last Name"
+        formControlName="LastName"
+        type="text"
+        (keydown)="onKeyDown($event)"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input
+        matInput
+        placeholder="Email"
+        formControlName="Email"
+        type="Email"
+        (keydown)="onKeyDown($event)"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input
+        matInput="password"
+        placeholder="Your Password"
+        formControlName="Password"
+        type="Password"
+        (keydown)="onKeyDown($event)"
+        (input)="
+          passwordValidation(form.value.Password, form.value.ConfirmPassword)
+        "
+        required
+      />
+      <div #password class="true-label display-none">
+        <mat-icon color="success">check_circle</mat-icon>
+      </div>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input
+        class="drawn"
+        matInput="password"
+        placeholder="Confirm Your Password"
+        formControlName="ConfirmPassword"
+        type="Password"
+        (keydown)="onKeyDown($event)"
+        (input)="
+        passwordValidation(form.value.Password, form.value.ConfirmPassword)
+        "
+        required
+      />
+      <div #confirmPassword class="true-label display-none">
+        <mat-icon color="success">check_circle</mat-icon>
+      </div>
+    </mat-form-field>
+    <div *ngIf="errorMessage" class="error">
+      <span class="error">{{ errorMessage }}</span>
+    </div>
+    <div>
+      <button mat-raised-button color="back" (click)="tabChange.emit(0)">
+        Back
+      </button>
+      <button
+        class="ml-8"
+        mat-raised-button
+        color="primary"
+        (click)="onSubmitFrom()"
+      >
+        Register
+      </button>
+    </div>
+  </form>
+</div>

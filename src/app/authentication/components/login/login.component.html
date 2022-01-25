@@ -1,0 +1,52 @@
+<div class="mt-50">
+  <mat-toolbar class="toolbar">
+    <mat-toolbar-row> Login User </mat-toolbar-row>
+  </mat-toolbar>
+  <form [formGroup]="form" class="form">
+    <mat-form-field class="full-width">
+      <input
+        matInput
+        placeholder="User Name"
+        formControlName="Username"
+        type="text"
+        (keydown)="onKeyDown($event)"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input
+        matInput="password"
+        placeholder="Your Password"
+        formControlName="Password"
+        type="password"
+        (keydown)="onKeyDown($event)"
+        required
+      />
+    </mat-form-field>
+    <div *ngIf="errorMessage" class="error">
+      <span class="error">{{ errorMessage }}</span>
+    </div>
+    <div class="pos">
+      <mat-checkbox class="Remember">Keep Me Logged In</mat-checkbox>
+    </div>
+    <div class="pos mt-50">
+      <button
+        mat-raised-button
+        (click)="onSubmitFrom()"
+        class="full-width"
+        color="primary"
+      >
+        Login
+      </button>
+      <button color="primary" mat-button (click)="tabChange.emit(1)">
+        Forget password ?
+      </button>
+      <!-- <mat-spinner
+        fxFlex="50%"
+        *ngIf="loginProcess"
+        diameter="40"
+        style="float: right"
+      ></mat-spinner> -->
+    </div>
+  </form>
+</div>

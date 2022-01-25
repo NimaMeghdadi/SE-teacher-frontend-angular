@@ -1,0 +1,59 @@
+<div class="login">
+  <div id="login" #loginCard class="login-card">
+    <mat-tab-group [selectedIndex]="selectedTab">
+      <mat-tab>
+        <ng-template matTabContent>
+          <sdl-login
+            [errorMessage]="errorMessage"
+            (tabChange)="selectedTab = $event"
+            (formSubmission)="loginFormSubmission($event)"
+          ></sdl-login>
+        </ng-template>
+      </mat-tab>
+      <mat-tab>
+        <ng-template matTabContent>
+          <sdl-forgot-password
+            [errorMessage]="errorMessage"
+            (formSubmission)="forgotPassFormSubmission($event)"
+            (tabChange)="selectedTab = $event"
+          ></sdl-forgot-password>
+        </ng-template>
+      </mat-tab>
+      <mat-tab>
+        <ng-template matTabContent>
+          <sdl-register
+            [errorMessage]="errorMessage"
+            (formSubmission)="registerFormSubmission($event)"
+            (tabChange)="selectedTab = $event"
+          ></sdl-register>
+        </ng-template>
+      </mat-tab>
+      <mat-tab>
+        <ng-template matTabContent>
+          <sdl-otp-key
+            [errorMessage]="errorMessage"
+            (formSubmission)="OTPKeyFormSubmission($event)"
+            (tabChange)="selectedTab = $event"
+          ></sdl-otp-key>
+        </ng-template>
+      </mat-tab>
+      <mat-tab>
+        <ng-template matTabContent>
+          <app-two-factor-authentication
+            (onClick)="twoFactorFormSubmission($event)"
+          ></app-two-factor-authentication>
+        </ng-template>
+      </mat-tab>
+      <mat-tab>
+        <ng-template matTabContent>
+          <h3>User is verifing and application is loading</h3>
+          <img
+            src="../../assets/gifs/user-verifing.gif"
+            alt=""
+            class="full-width"
+          />
+        </ng-template>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

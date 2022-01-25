@@ -1,0 +1,76 @@
+<div class="two-factor-card">
+  <div class="user-detail">
+    <mat-horizontal-stepper [linear]="false">
+      <mat-step>
+        <label class="first-lbl"
+          >Please use your authentication app (such as Duo or Google
+          Authenticator) to scan this QR code.</label
+        >
+        <div class="stretch-item">
+          <div class="qr-code-continer">
+            <div class="center full-height">
+              <ngx-qrcode
+                class="qrcode"
+                [elementType]="elementType"
+                [value]="qrcOTPKey"
+              ></ngx-qrcode>
+            </div>
+          </div>
+          <div class="qr-code-continer">
+            <div class="second-lbl">
+              Or enter this code into your authentication app
+            </div>
+            <div class="otpKey-lbl">
+              {{ otpKey }}
+            </div>
+          </div>
+        </div>
+        <div class="mt-20">
+          <button color="back" mat-button (click)="onClickCancle()">
+            Cancle
+          </button>
+          <button mat-raised-button color="primary" matStepperNext>Next</button>
+        </div>
+      </mat-step>
+      <mat-step class="center">
+        <b>Enter Confirmation Code</b>
+        <div color="pTag">
+          Please enter the confirmation code you see on your authentication app
+        </div>
+        <div class="authentication-number">
+          <input
+            #inputField
+            class="opt-enter-key"
+            *ngFor="let i of [0, 1, 2, 3, 4, 5]"
+            maxlength="1"
+            type="text"
+            (keyup)="onKeyUpOptKey($event, i)"
+            (keydown)="onKeyDownOptKey($event)"
+            required
+          />
+        </div>
+        <div class="mt-20">
+          <button
+            mat-button
+            (click)="removeOtpKeyInput()"
+            color="back"
+            matStepperPrevious
+          >
+            Back
+          </button>
+          <button
+            mat-raised-button
+            color="primary"
+            [disabled]="disabledVerification"
+            (click)="OnClickKeyValidation()"
+          >
+            Save
+          </button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </div>
+</div>
+<div *ngIf="errorMessage">
+  <span class="error">{{ errorMessage }}</span>
+</div>

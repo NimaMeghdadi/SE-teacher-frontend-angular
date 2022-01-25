@@ -1,0 +1,78 @@
+.qr-code-continer {
+  border: 1px solid #bdbdbd;
+  width: calc(100% / 2);
+  margin: 5px;
+  min-height: 245px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#userProfile ::ng-deep .mat-horizontal-content-container {
+  padding: 0 !important;
+}
+
+.opt-enter-key {
+  font-size: 57px;
+  text-align: center;
+  width: 60px;
+  border: 1px solid #bdbdbd;
+  margin: 2px;
+  padding: 10px;
+  margin-top: 35px;
+}
+
+.mat-horizontal-stepper-header {
+  pointer-events: none !important;
+}
+#TwoFactorAuthentication mat-horizontal-stepper {
+  background-color: #fff0;
+}
+
+.qrcode {
+  display: flex;
+  align-self: center;
+  width: 80%;
+  height: 100%;
+  ::ng-deep canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+.two-factor-card {
+  margin-top: 25px;
+  min-height: 300px;
+}
+.first.lbl {
+  margin-top: 25px;
+  min-height: 300px;
+}
+.second-lbl {
+  color: gray;
+  font-size: 14px;
+  line-height: 24px;
+}
+.stretch-item {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.otpKey-lbl {
+  margin-top: 30px;
+  font-size: 20px;
+  font-weight: bolder;
+}
+.authentication-number {
+  text-align: center;
+  height: 246px;
+}

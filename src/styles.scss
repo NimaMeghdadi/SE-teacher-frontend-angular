@@ -1,0 +1,119 @@
+/* You can add global styles to this file, and also import other style files */
+// @import '../node_modules/@angular/material/prebuilt-themes/indigo-pink.css'
+// @import "~@angular/material/theming";
+
+// @import "./themes/dark.theme.scss";
+// @import "./themes/light.theme.scss";
+
+// @import "./app/shared/scss/formly.scss";
+// @import "./app/shared/scss/dynamic-table.scss";
+// @import "./app/shared/scss/scrollbar.scss";
+// @import "./app/shared/scss/material.scss";
+
+// @include mat-core();
+
+// .dark-theme {
+//   @include angular-material-theme($dark-theme);
+// }
+
+// .light-theme {
+//   @include angular-material-theme($light-theme);
+// }
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.full-width {
+  width: 100%;
+}
+.half_width {
+  width: 50%;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.body {
+  height: calc(100vh - 66px);
+  display: flex;
+  flex-direction: row;
+  .body-layout {
+    display: inline-flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+  .main-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-top: 8px;
+  }
+  .main-card-with-sidebar {
+    display: flex;
+    flex-direction: column;
+    margin-top: 8px;
+    width: 100%;
+  }
+}
+.d-flex {
+  display: flex;
+}
+.d-flex-column {
+  display: flex;
+  flex-direction: column;
+}
+.time-title {
+  display: flex;
+  justify-content: center;
+  font-size: 22px !important;
+  font-weight: bold !important;
+}
+#pagination-list {
+  .mat-paginator-range-label {
+    position: absolute;
+    margin-top: 48px !important;
+  }
+  .mat-paginator-range-actions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .mat-paginator-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+}
+.gm-style {
+  .gm-style-iw-d {
+    box-sizing: border-box;
+    max-width: 280px;
+    min-width: 250px;
+    overflow-wrap: break-word;
+    overflow: auto;
+  }
+}
+sdl-set-key-value-object-on-dynamic-table-cell {
+  width: 100%;
+  height: 100%;
+}
+.chat-card {
+  width: 450px;
+  margin-top: 8px;
+  margin-left: 8px;
+}
+app-chat-ui {
+  height: 100%;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

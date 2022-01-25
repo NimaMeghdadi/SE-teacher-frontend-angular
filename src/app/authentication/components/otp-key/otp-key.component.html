@@ -1,0 +1,39 @@
+<div class="mt-50 full-height">
+  <mat-toolbar class="toolbar">
+    <mat-toolbar-row>OTP Key</mat-toolbar-row>
+  </mat-toolbar>
+  <form [formGroup]="form" class="form">
+    <mat-form-field class="full-width">
+      <input
+        matInput
+        formControlName="OTPKey"
+        placeholder="OTP Key"
+        color="primary"
+        (keydown)="onKeyDown($event)"
+        required
+      />
+    </mat-form-field>
+    <span class="error">{{ errorMessage }}</span>
+    <div>
+      <!-- <mat-spinner
+                    fxFlex
+                    *ngIf="emailProcess"
+                    diameter="40"
+                    style="float: right"
+                  ></mat-spinner> -->
+    </div>
+    <div class="mt-145">
+      <button mat-raised-button color="back" (click)="tabChange.emit(0)">
+        Back
+      </button>
+      <button
+        class="ml-8"
+        mat-raised-button
+        color="primary"
+        (click)="onSubmitFrom()"
+      >
+        Verification
+      </button>
+    </div>
+  </form>
+</div>
