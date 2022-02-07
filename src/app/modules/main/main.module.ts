@@ -10,6 +10,7 @@ import {MatInputModule} from '@angular/material/input';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MainRoutingComponent } from './components/main-routing/main-routing.component';
+import { ClassListComponent } from './components/class-list/class-list.component';
 
 const Material_Module = [
   MatToolbarModule,
@@ -22,7 +23,8 @@ const Material_Module = [
 @NgModule({
   declarations: [
     NavbarComponent,
-    MainRoutingComponent
+    MainRoutingComponent,
+    ClassListComponent
   ],
   imports: [
     CommonModule,
