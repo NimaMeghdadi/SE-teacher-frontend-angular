@@ -6,8 +6,13 @@ const routes: Routes = [
     path: "login",
     loadChildren: () =>
       import("./authentication/authentication.module").then(
-        m => m.AuthenticationModule,
+        (m) => m.AuthenticationModule
       ),
+  },
+  {
+    path: "",
+    loadChildren: () =>
+      import("./modules/main/main.module").then((m) => m.MainModule),
   },
   // { path: "**", redirectTo: "dashboard" },
 ];
