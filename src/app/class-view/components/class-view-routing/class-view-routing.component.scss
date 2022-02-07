@@ -1,0 +1,6 @@
+#routing {
+  height: 100%;
+  > *:not(router-outlet) {
+    height: 100%;
+  }
+}

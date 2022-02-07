@@ -1,6 +1,18 @@
-<ng-container *ngFor="let item of list">
-    <div class="m-3">
-
-        <app-class-card [data]='item'></app-class-card>
+<div class="container h-100">
+  <div class="d-flex flex-column">
+    <div class="header">
+      <h5 class="text-bold m-0">Books</h5>
+      <section></section>
     </div>
-</ng-container> 
+  </div>
+
+  <div class="divider"></div>
+
+  <app-class-search-filter></app-class-search-filter>
+
+  <ng-container *ngFor="let item of list">
+    <div class="m-3">
+      <app-class-card [data]="item"></app-class-card>
+    </div>
+  </ng-container>
+</div>
