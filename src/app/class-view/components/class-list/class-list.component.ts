@@ -1,6 +1,6 @@
 import { getLocaleDateFormat } from "@angular/common";
 import { Component, OnInit } from "@angular/core";
-import { ClassModel } from "../../shared/models/class.model";
+import { ClassModel } from "@app/class-view/models/class.model";
 
 @Component({
   selector: "app-class-list",
