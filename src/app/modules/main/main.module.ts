@@ -11,12 +11,11 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MainRoutingComponent } from './components/main-routing/main-routing.component';
 import { ClassListComponent } from './components/class-list/class-list.component';
+import { ClassCardComponent } from './components/class-list/class-card/class-card.component';
 
 const Material_Module = [
   MatToolbarModule,
   MatIconModule,
-
-
 ];
 
 
@@ -24,7 +23,8 @@ const Material_Module = [
   declarations: [
     NavbarComponent,
     MainRoutingComponent,
-    ClassListComponent
+    ClassListComponent,
+    ClassCardComponent
   ],
   imports: [
     CommonModule,
