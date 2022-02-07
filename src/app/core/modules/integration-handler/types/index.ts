@@ -1,5 +1,0 @@
-export * from "./application-name.type"
-export * from "./application-url.type"
-export * from "./base-destination.type"
-export * from "./url-base.type"
-export * from "./window-target.type"

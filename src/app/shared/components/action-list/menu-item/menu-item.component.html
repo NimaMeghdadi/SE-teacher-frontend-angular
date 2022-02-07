@@ -1,0 +1,42 @@
+<mat-menu #childMenu="matMenu" [overlapTrigger]="false">
+  <span *ngFor="let child of items">
+    <!-- Handle branch node menu items -->
+    <span *ngIf="child.children && child.children.length > 0">
+      <button
+        mat-menu-item
+        color="primary"
+        [matMenuTriggerFor]="menu.childMenu"
+      >
+        <mat-icon>{{ child.matIcon }}</mat-icon>
+        <span>{{ child.text }}</span>
+      </button>
+      <app-menu-item
+        #menu
+        [items]="child.children"
+        (actionClick)="item_onClick($event)"
+      ></app-menu-item>
+    </span>
+    <!-- Handle leaf node menu items -->
+    <span *ngIf="!child.children || child.children.length === 0">
+      <button
+        mat-menu-item
+        *ngIf="multi === null || multi === undefined || multi === false"
+        (click)="item_onClick(child, $event)"
+        [class.active-button]="child.selected"
+      >
+        <mat-icon>{{ child.matIcon }}</mat-icon>
+        <span>{{ child.text }}</span>
+      </button>
+      <mat-checkbox
+        class="mat-menu-item"
+        *ngIf="multi === true"
+        [()]="child.selected"
+        [value]='child.selected'
+        (change)="item_onChange(child, $event)"
+        (click)="$event.stopPropagation()"
+      >
+        {{ child.text }}
+      </mat-checkbox>
+    </span>
+  </span>
+</mat-menu>

@@ -1,24 +1,24 @@
-import { Directive, ElementRef, Input } from "@angular/core";
-import { environment } from "src/environments/environment";
+import { Directive, ElementRef, Input } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Directive({
-  selector: "[imageSource]",
+  selector: '[slpImageSource]',
 })
 export class ImageSourceDirective {
-  @Input("imageSource") set item(data:any) {
+  @Input('slpImageSource') set item(data) {
     if (this.isNotAvailable(data)) {
-      this.el.nativeElement.src = "assets/images/no-image.png";
-      this.el.nativeElement.alt = "No image found !";
+      this.el.nativeElement.src = 'assets/images/no-image.png';
+      this.el.nativeElement.alt = 'No image found !';
     } else {
-      this.el.nativeElement.src =  data;
-      this.el.nativeElement.alt = "Image :)";
+      this.el.nativeElement.src = environment.imageBaseUrl + data;
+      this.el.nativeElement.alt = 'Image :)';
     }
   }
 
   constructor(private el: ElementRef) {}
 
-  isNotAvailable(value:any) {
-    if (value === null || value === undefined || value === "") return true;
+  isNotAvailable(value) {
+    if (value === null || value === undefined || value === '') return true;
     else return false;
   }
 }

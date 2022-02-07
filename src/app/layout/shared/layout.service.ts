@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
-import { Assistant } from "@shared/Assistant";
 import { BehaviorSubject, Observable } from "rxjs";
+import { Assistant } from "src/app/shared/Assistant";
 import { toglleButtonInfo } from "./models/toggleButtons";
 
 @Injectable({

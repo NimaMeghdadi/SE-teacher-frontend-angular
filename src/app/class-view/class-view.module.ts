@@ -14,8 +14,8 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { ScrollingModule } from "@angular/cdk/scrolling";
 import { SearchBarComponent } from "./components/class-list/search-bar/search-bar.component";
 import { MatExpansionModule } from "@angular/material/expansion";
-import { SharedModule } from "@shared/shared.module";
 import { Ng5SliderModule } from "ng5-slider";
+import { SharedModule } from "../shared/shared.module";
 
 const Material_Module = [
   MatToolbarModule,

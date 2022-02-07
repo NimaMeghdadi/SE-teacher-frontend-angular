@@ -1,0 +1,49 @@
+<div (click)="openClose_OnClick(!open)" class="open-close-action" matRipple>
+  <mat-icon
+    [class.open]="open === true"
+    [class.close-button]="open === false"
+    class="header"
+    >arrow_left</mat-icon
+  >
+</div>
+<div class="vertical">
+  <ng-container *ngFor="let item of ActionItemList; let i = index">
+    <ng-container *ngIf="!item.hiden">
+      <div
+        class="button-item"
+        [class.button-item-close]="open === false"
+        [class.disable]="item.disable"
+      >
+        <div
+          matRipple
+          [class.active-button]="item.selected"
+          class="button-item-normal"
+          [matTooltip]="item.tooltip"
+          matTooltipPosition="before"
+          matTooltipClass="tooltip-class"
+          (click)="button_OnClick(item, openTrigger)"
+        >
+          <mat-icon color="primary" *ngIf="item.matIcon">{{
+            item.matIcon
+          }}</mat-icon>
+          <span *ngIf="open">{{ item.text }}</span>
+          <div
+            style="position: absolute; width: 100%"
+            [matMenuTriggerFor]="menu.childMenu"
+            #openTrigger="matMenuTrigger"
+          ></div>
+        </div>
+        <!-- mat menu  -->
+        <app-menu-item
+          #menu
+          [items]="item.children"
+          (actionClick)="item_OnClick($event)"
+          [multi]="item.multi"
+          xPosition="before"
+        >
+        </app-menu-item>
+      </div>
+      <hr *ngIf="item.splitter === true" class="splitter" />
+    </ng-container>
+  </ng-container>
+</div>

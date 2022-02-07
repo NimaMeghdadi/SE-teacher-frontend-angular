@@ -1,7 +1,8 @@
 import { getLocaleDateFormat } from "@angular/common";
 import { Component, OnInit } from "@angular/core";
-import { ClassModel } from "@app/class-view/models/class.model";
-import { ApiRequest, GlobalService, ParamsHandler } from "@app/core";
+import { GlobalService } from "src/app/core/services/global.service";
+import { ApiRequest } from "src/app/core/services/request.service";
+import { ClassModel } from "../../models/class.model";
 
 @Component({
   selector: "app-class-list",
@@ -10,7 +11,7 @@ import { ApiRequest, GlobalService, ParamsHandler } from "@app/core";
 })
 export class ClassListComponent implements OnInit {
   list: Array<ClassModel> = [];
-  constructor(private _globalService : GlobalService) {}
+  constructor(private gs: GlobalService) {}
 
   ngOnInit(): void {
     this.getData();
@@ -23,10 +24,14 @@ export class ClassListComponent implements OnInit {
     this.list.push(new ClassModel({ title: "English class" }));
   }
 
-  onSearch(  model: { [key: string]: string | number }){
-    ApiRequest('GET').controller('classes').action('search').addParams(model).call(this._globalService).subscribe((resp) => {
-      console.log(resp);
-      
-    })
+  onSearch(model: { [key: string]: string | number }) {
+    ApiRequest("GET")
+      .controller("classes")
+      .action("search")
+      .addParams(model)
+      .call(this.gs)
+      .subscribe((resp) => {
+        console.log(resp);
+      });
   }
 }

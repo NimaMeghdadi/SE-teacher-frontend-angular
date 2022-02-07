@@ -1,9 +1,8 @@
-
+/* You can add global styles to this file, and also import other style files */
+@import "./assets/styles/colors.scss";
 @import "./assets/styles/main-classes.scss";
 @import "./assets/styles/formly.scss";
-
-/* You can add global styles to this file, and also import other style files */
-
+@import "~animate.css/animate.min";
 
 html,
 body {
@@ -14,91 +13,35 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-.full-width {
-  width: 100%;
-}
-.half_width {
-  width: 50%;
+button {
+  outline: none;
 }
 
-.full-height {
-  height: 100%;
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
 }
 
-.body {
-  height: calc(100vh - 66px);
-  display: flex;
-  flex-direction: row;
-  .body-layout {
-    display: inline-flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-  }
-  .main-card {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    margin-top: 8px;
-  }
-  .main-card-with-sidebar {
-    display: flex;
-    flex-direction: column;
-    margin-top: 8px;
-    width: 100%;
-  }
+::-webkit-scrollbar-track {
+  background: #e0e0e0;
 }
-.d-flex {
-  display: flex;
+::-webkit-scrollbar-thumb {
+  background-color: #959595;
+  border-radius: 20px;
 }
-.d-flex-column {
-  display: flex;
-  flex-direction: column;
-}
-.time-title {
-  display: flex;
-  justify-content: center;
-  font-size: 22px !important;
-  font-weight: bold !important;
-}
-#pagination-list {
-  .mat-paginator-range-label {
-    position: absolute;
-    margin-top: 48px !important;
-  }
-  .mat-paginator-range-actions {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
 
-  .mat-paginator-container {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-  }
+.mat-form-field-suffix {
+  align-self: center !important;
 }
-.gm-style {
-  .gm-style-iw-d {
-    box-sizing: border-box;
-    max-width: 280px;
-    min-width: 250px;
-    overflow-wrap: break-word;
-    overflow: auto;
-  }
+
+dynamic-mat-table {
+  background-color: white !important;
 }
-sdl-set-key-value-object-on-dynamic-table-cell {
-  width: 100%;
-  height: 100%;
+
+.table > :not(:first-child) {
+  border-top: 0;
 }
-.chat-card {
-  width: 450px;
-  margin-top: 8px;
-  margin-left: 8px;
+
+.mat-tab-body-wrapper {
+  flex-grow: 1;
 }
-app-chat-ui {
-  height: 100%;
-}
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

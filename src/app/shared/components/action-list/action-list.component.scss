@@ -1,0 +1,112 @@
+:host {
+  user-select: none;
+  text-align: center;
+  border: 1px solid gainsboro;
+  // margin-left: 5px;
+  border-radius: 5px;
+  .button-item {
+    display: inline-flex;
+    border-radius: 4px;
+    width: 100%;
+    margin-bottom: 5px;
+    text-align: left;
+    background-color: #f5f5f5;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 4px;
+    margin-right: 4px;
+    padding: 0px 0px 0px 0px !important;
+    cursor: pointer;
+    overflow: hidden;
+    span {
+      font-size: 12px;
+      overflow: hidden;
+    }
+  }
+
+  .button-item-close {
+    background-color: white !important;
+    transition: 0.7s;
+    overflow: inherit;
+    .button-item-normal {
+      width: 100%;
+    }
+  }
+  .button-item-normal {
+    display: flex !important;
+    width: 100%;
+    line-height: 42px;
+    float: right;
+    mat-icon {
+      margin-top: 8px;
+      margin-right: 3px;
+      margin-left: 2px;
+    }
+  }
+}
+
+.vertical {
+  width: calc(100% - 8px);
+  position: relative;
+  top: 50%;
+  transform: translateY(calc(-50% - 36px));
+}
+
+.open-close-action {
+  // background-color: #e6e6e6;
+  background-color: #0e5ab8;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 5px;
+  // height: 24px;
+  .header {
+    color: white;
+    font-size: 26px;
+    margin-top: 9px;
+  }
+
+  .open {
+    transition: 0.5s;
+    transform: rotate(180deg);
+    transform-origin: center center;
+  }
+  .close-button {
+    transition: 0.5s;
+    transform: rotate(0deg);
+    transform-origin: center center;
+  }
+}
+
+.toggle-content {
+  display: none;
+  height: 0;
+  transition: height 350ms ease-in-out;
+}
+
+.splitter {
+  max-width: calc(100% - 10px);
+  margin-left: 6px;
+  margin-top: 2px;
+  margin-bottom: 4px;
+}
+
+.disable {
+  cursor: not-allowed !important;
+  mat-icon {
+    color: gray !important;
+  }
+}
+
+.active-button {
+  background-color: #795548 !important;
+  color: white;
+  border-radius: 5px;
+  mat-icon {
+    color: white;
+  }
+}
+
+.tooltip-class {
+  background: #b71c1c;
+  min-width: 200px;
+}

@@ -1,12 +1,9 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "cli": {
-    "analytics": "0a295e17-ef80-49c3-a291-f6221b4d9689"
-  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "SE-teacher-frontend-angular": {
+    "db-front": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,22 +20,22 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/se-teacher-frontend-angular",
+            "outputPath": "dist/db-front",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -77,10 +74,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "SE-teacher-frontend-angular:build:production"
+              "browserTarget": "db-front:build:production"
             },
             "development": {
-              "browserTarget": "SE-teacher-frontend-angular:build:development"
+              "browserTarget": "db-front:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -88,7 +85,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "SE-teacher-frontend-angular:build"
+            "browserTarget": "db-front:build"
           }
         },
         "test": {
@@ -99,13 +96,9 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -114,5 +107,5 @@
       }
     }
   },
-  "defaultProject": "SE-teacher-frontend-angular"
+  "defaultProject": "db-front"
 }

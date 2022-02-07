@@ -37,7 +37,7 @@ export class Assistant {
     return date.toISOString();
   }
 
-  public static getColor(index:any): string {
+  public static getColor(index): string {
     var color = [
       '#f44336',
       '#E91E63',
@@ -75,7 +75,7 @@ export class Assistant {
     }
   }
 
-  public static isJSON(str:any) {
+  public static isJSON(str) {
     try {
       JSON.parse(str);
     } catch (e) {
