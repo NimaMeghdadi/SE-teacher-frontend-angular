@@ -14,20 +14,29 @@ const routes: Routes = [
         component: MainPageComponent,
       },
       {
-        path: 'profile',
+        path: 'publishers',
         loadChildren: () =>
-          import('./../profile/profile.module').then((m) => m.ProfileModule),
+          import('./../publishers/publishers.module').then(
+            (m) => m.PublishersModule
+          ),
       },
       {
-        path: 'store',
+        path: 'books',
         loadChildren: () =>
-          import('./../store/store.module').then((m) => m.StoreModule),
+          import('./../books/books.module').then((m) => m.BooksModule),
       },
-      // {
-      //   path: 'ReTasker',
-      //   loadChildren: () =>
-      //     import('../re-tasker/re-tasker.module').then((m) => m.ReTaskerModule),
-      // },
+      {
+        path: 'authors',
+        loadChildren: () =>
+          import('./../authors/authors.module').then((m) => m.AuthorsModule),
+      },
+      {
+        path: 'customers',
+        loadChildren: () =>
+          import('./../customers/customers.module').then(
+            (m) => m.CustomersModule
+          ),
+      },
     ],
   },
 ];

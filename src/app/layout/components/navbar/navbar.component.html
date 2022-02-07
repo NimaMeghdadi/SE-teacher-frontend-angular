@@ -1,5 +1,5 @@
 <div class="nav">
-  <strong class="nav-title" routerLink="/">OVS Store</strong>
+  <strong class="nav-title" routerLink="/">Database Project</strong>
   <div class="nav-btns">
     <a
       *ngFor="let item of navbarItems.public; let i = index"
@@ -38,7 +38,7 @@
       </div>
     </a>
 
-    <a (mouseover)="setItemPos()">
+    <!-- <a (mouseover)="setItemPos()">
       <button
         id="nav-item"
         mat-button
@@ -58,7 +58,7 @@
           <button class="nav-subitem-item">Shopping Basket</button>
         </a>
       </div>
-    </a>
+    </a> -->
 
     <!-- <ng-container *ngIf="(userService.User | async)?.UserKindID === 1">
       <a (mouseover)="setItemPos()">

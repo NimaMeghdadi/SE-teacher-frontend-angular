@@ -2,7 +2,7 @@
 
 .wrapper {
   background-color: #f7f8f8;
-  height: calc(100vh - 73px);
+  height: calc(100vh - 65px);
   width: 100%;
 }
 
@@ -12,7 +12,7 @@
 
   &-wallpaper {
     display: flex;
-    background-color: #000;
+    background-color: rgb(68, 61, 74);
     border-radius: 8px;
     height: 500px;
     width: 100%;
@@ -24,37 +24,4 @@
       color: #ffffff;
     }
   }
-
-  &-carousel {
-    padding: 0 5rem;
-    carousel {
-      height: 300px !important;
-      z-index: 0;
-    }
-
-    ::ng-deep .carousel-arrow {
-      transform: scale(1.5);
-      background-color: transparent !important;
-      background-size: 20px !important;
-      box-shadow: none !important;
-      transition: 0.1s;
-    }
-
-    ::ng-deep .carousel-arrow:hover {
-      background-color: #ffffff90 !important;
-      transition: 0.1s;
-    }
-
-    ::ng-deep .carousel-arrow-disabled {
-      display: none !important;
-    }
-  }
-}
-
-.content {
-  height: -webkit-fill-available;
-
-  margin: 0 24px 24px;
-  background-color: #dbdbdb;
-  border-radius: 4px;
 }

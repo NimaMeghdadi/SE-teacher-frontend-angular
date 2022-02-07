@@ -1,25 +1,7 @@
 <div class="wrapper">
-  <div class="row top">
-    <div class="col-md-12 top-wallpaper">
-      <h1>Welcome to Online V Store</h1>
-    </div>
-    <div class="col-md-12 m-auto top-carousel">
-      <carousel
-        [objectFit]="'contain'"
-        [cellWidth]="500"
-        [arrowsOutside]="true"
-        [autoplay]="true"
-        [autoplayInterval]="3000"
-        [dots]="true"
-        [loop]="true"
-        [pauseOnHover]="true"
-        [freeScroll]="false"
-      >
-        <div class="carousel-cell" *ngFor="let item of carouselData">
-          <slp-carousel-item [sale]="item"></slp-carousel-item>
-        </div>
-      </carousel>
+  <div class="row top h-100">
+    <div class="col-md-12 top-wallpaper h-100">
+      <h1>Welcome</h1>
     </div>
   </div>
-  <div class="row content"></div>
 </div>
