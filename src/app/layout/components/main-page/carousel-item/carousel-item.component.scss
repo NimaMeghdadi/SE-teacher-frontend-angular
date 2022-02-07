@@ -1,0 +1,29 @@
+.sale {
+  display: flex;
+  height: 100%;
+  gap: 16px;
+  padding: 16px;
+  background-color: #efefef;
+  border-radius: 4px;
+
+  &-img {
+    width: 40% !important;
+    // height: 50% !important;
+  }
+
+  &-info {
+    width: 60%;
+    align-self: center;
+    &-action {
+      a {
+        color: #8d0000;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
+}

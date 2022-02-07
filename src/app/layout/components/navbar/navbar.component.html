@@ -1,0 +1,141 @@
+<div class="nav">
+  <strong class="nav-title" routerLink="/">OVS Store</strong>
+  <div class="nav-btns">
+    <a
+      *ngFor="let item of navbarItems.public; let i = index"
+      (mouseover)="setItemPos()"
+    >
+      <button
+        [routerLink]="item?.route"
+        [routerLinkActive]=""
+        id="nav-item"
+        mat-button
+        [disableRipple]="true"
+        class="nav-btns-item"
+      >
+        <span>
+          {{ item.title }}
+          <mat-icon
+            class="nav-btns-item-icon"
+            *ngIf="item.subItem && item.subItem.length != 0"
+            >expand_more</mat-icon
+          >
+        </span>
+        <div *ngIf="currentRoute == item?.id" class="nav-btns-line"></div>
+      </button>
+      <div
+        [style.left.px]="navItemsPos[i]?.left"
+        class="nav-subitem"
+        *ngIf="item.subItem && item.subItem.length != 0"
+      >
+        <ng-container *ngFor="let subItem of item.subItem">
+          <a [routerLink]="subItem?.route">
+            <button class="nav-subitem-item">
+              {{ subItem.title }}
+            </button>
+          </a>
+        </ng-container>
+      </div>
+    </a>
+
+    <a (mouseover)="setItemPos()">
+      <button
+        id="nav-item"
+        mat-button
+        [disableRipple]="true"
+        class="nav-btns-item"
+      >
+        <span>
+          Profile
+          <mat-icon class="nav-btns-item-icon">expand_more</mat-icon>
+        </span>
+      </button>
+      <div [style.left.px]="navItemsPos[7]?.left" class="nav-subitem">
+        <a [routerLink]="'profile/login'">
+          <button class="nav-subitem-item">Login</button>
+        </a>
+        <a [routerLink]="'store/basket'">
+          <button class="nav-subitem-item">Shopping Basket</button>
+        </a>
+      </div>
+    </a>
+
+    <!-- <ng-container *ngIf="(userService.User | async)?.UserKindID === 1">
+      <a (mouseover)="setItemPos()">
+        <button
+          id="nav-item"
+          mat-button
+          [disableRipple]="true"
+          class="nav-btns-item"
+        >
+          <span>
+            Dashboard
+            <mat-icon class="nav-btns-item-icon">expand_more</mat-icon>
+          </span>
+        </button>
+        <div
+          [style.left.px]="navItemsPos[navItemsPos.length - 2]?.left"
+          class="nav-subitem"
+        >
+          <ng-container *ngFor="let routeItem of navbarItems.customer">
+            <a (click)="onCustomerRouteChange(routeItem)">
+              <button class="nav-subitem-item">
+                {{ routeItem.title }}
+              </button>
+            </a>
+          </ng-container>
+        </div>
+      </a>
+    </ng-container> -->
+    <!-- <ng-container *ngIf="!(userService.isLoggedIn | async)">
+      <a (mouseover)="setItemPos()">
+        <button
+          id="nav-item"
+          mat-button
+          [disableRipple]="true"
+          class="nav-btns-item"
+          routerLink="/profile/login"
+        >
+          My Siegel
+          <div *ngIf="currentRoute == 'profile'" class="nav-btns-line"></div>
+        </button>
+      </a>
+    </ng-container> -->
+    <!-- <ng-container *ngIf="userService.isLoggedIn | async">
+      <a (mouseover)="setItemPos()">
+        <button
+          id="nav-item"
+          mat-button
+          [disableRipple]="true"
+          class="nav-btns-item"
+        >
+          <strong>
+            {{
+              (userService.User | async).FormalName
+                ? (userService.User | async).FormalName
+                : "My Siegel"
+            }}
+          </strong>
+        </button>
+        <div
+          [style.left.px]="navItemsPos[navItemsPos.length - 1]?.left"
+          class="nav-subitem"
+        >
+          <a class="nav-subitem-item" routerLink="/profile/dashboard">
+            Profile
+          </a>
+          <a
+            *ngIf="(userService.User | async)?.UserKindID != 1"
+            class="nav-subitem-item"
+            (click)="onActionClick('dashboard')"
+          >
+            Dashboard
+          </a>
+          <a class="nav-subitem-item warn" (click)="userService.logout()">
+            Logout
+          </a>
+        </div>
+      </a>
+    </ng-container> -->
+  </div>
+</div>
