@@ -1,5 +1,6 @@
 import { getLocaleDateFormat } from "@angular/common";
 import { Component, OnInit } from "@angular/core";
+import { map, take } from "rxjs/operators";
 import { GlobalService } from "src/app/core/services/global.service";
 import { ApiRequest } from "src/app/core/services/request.service";
 import { ClassModel } from "../../models/class.model";
@@ -19,9 +20,7 @@ export class ClassListComponent implements OnInit {
 
   getData() {
     //get data
-    this.list.push(new ClassModel({ title: "English class" }));
-    this.list.push(new ClassModel({ title: "English class" }));
-    this.list.push(new ClassModel({ title: "English class" }));
+    this.onSearch({})
   }
 
   onSearch(model: { [key: string]: string | number }) {
@@ -29,9 +28,14 @@ export class ClassListComponent implements OnInit {
       .controller("classes")
       .action("search")
       .addParams(model)
-      .call(this.gs)
+      .call(this.gs).pipe(
+        take(1),
+        map((res:any) => {
+          return res.map((el) => new ClassModel(el));
+        })
+      )
       .subscribe((resp) => {
-        console.log(resp);
+        this.list=resp
       });
   }
 }
