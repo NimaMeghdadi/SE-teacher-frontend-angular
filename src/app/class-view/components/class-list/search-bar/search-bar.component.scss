@@ -18,8 +18,17 @@
 
 .row {
   align-items: center;
+  margin: 0;
 }
-
+.col{
+  padding: 0;
+}
+.col-6{
+  padding: 0;
+}
+.p-15{
+padding: 15px;
+}
 .property_form {
   padding: 30px;
   background: rgb(255 255 255 / 64%);

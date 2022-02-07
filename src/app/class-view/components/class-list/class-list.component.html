@@ -8,7 +8,7 @@
 
   <div class="divider my-2"></div>
 
-  <app-class-search-filter></app-class-search-filter>
+ <app-search-bar (onSearch)="onSearch($event)"></app-search-bar>
 
   <ng-container *ngFor="let item of list">
     <div class="m-3">

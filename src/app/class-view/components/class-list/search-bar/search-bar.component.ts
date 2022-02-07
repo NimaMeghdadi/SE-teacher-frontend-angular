@@ -1,5 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { ParamsHandler } from '@app/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { LabelType } from 'ng5-slider';
 import { GlobalService } from 'src/app/core/services/global.service';
 
@@ -9,7 +8,7 @@ import { GlobalService } from 'src/app/core/services/global.service';
   styleUrls: ['./search-bar.component.scss'],
 })
 export class SearchBarComponent {
-  @Output() onSearch = new EventEmitter<ParamsHandler>();
+  @Output() onSearch = new EventEmitter<{ [key: string]: string | number }>();
   expandable = true;
   showSearchHeader = true;
   state = false;
@@ -25,10 +24,10 @@ export class SearchBarComponent {
 
   clearViewState() {
     this.viewState = {
-      professorFirstName: '',
-      professorLastName: '',
+      fname: '',
+      lname: '',
       rangeSlider: this.resetRengSlider(),
-      className: ''
+      title: ''
     }
   }
 
@@ -67,14 +66,14 @@ export class SearchBarComponent {
 
 
   OnSearchByFilter() {
-    let params = new ParamsHandler();
-    params.addParam('fname', this.viewState.professorFirstName);
-    params.addParam('lname', this.viewState.professorLastName);
-    params.addParam('title', this.viewState.className);
-    if (this.viewState.rangeSlider)
-      params.addParam('priceFrom', this.viewState.rangeSlider.minValue);
-    params.addParam('priceTo', this.viewState.rangeSlider['maxValue']);
-    this.onSearch.emit(params);
+    let model: { [key: string]: string | number } = {
+      fname: this.viewState.fname,
+      lname: this.viewState.lname,
+      title: this.viewState.title,
+      priceFrom: this.viewState.rangeSlider.minValue,
+      priceTo: this.viewState.rangeSlider.maxValue
+    }
+    this.onSearch.emit(model);
   }
 
   OnClearFilter() { }
@@ -103,10 +102,10 @@ export class SearchBarComponent {
   }
 }
 interface Params {
-  professorFirstName: string;
-  professorLastName: string;
+  fname: string;
+  lname: string;
   rangeSlider: RangeSlider,
-  className: string
+  title: string
 }
 interface RangeSlider {
   minValue: number,

@@ -16,7 +16,7 @@
           aria-label="Number"
           matInput
           placeholder="Professor Name"
-          [(ngModel)]="viewState.professorFirstName"
+          [(ngModel)]="viewState.fname"
         />
         <button
           mat-icon-button
@@ -53,7 +53,7 @@
                     class="search-input"
                     #searchInput
                     matInput
-                    [(ngModel)]="viewState.professorFirstName"
+                    [(ngModel)]="viewState.fname"
                   />
                 </mat-form-field>
               </div>
@@ -68,11 +68,13 @@
                     class="search-input"
                     #searchInput
                     matInput
-                    [(ngModel)]="viewState.professorFirstName"
+                    [(ngModel)]="viewState.lname"
                   />
                 </mat-form-field>
               </div>
             </div>
+          </div>
+          <div class="col">
             <div class="row center">
               <div class="col-3">
                 <span>Class Name</span>
@@ -83,32 +85,16 @@
                     class="search-input"
                     #searchInput
                     matInput
-                    [(ngModel)]="viewState.className"
+                    [(ngModel)]="viewState.title"
                   />
                 </mat-form-field>
               </div>
             </div>
-
-            <!-- <div class="row center">
-              <div class="col-3">
-                <span>Sort By Price</span>
-              </div>
-              <div class="col ">
-                <mat-form-field appearance="fill" class="width-75 ">
-                  <mat-select [(ngModel)]="viewState.sortByPrice">
-                    <mat-option value="1"> Low To High </mat-option>
-                    <mat-option value="0"> High To Low </mat-option>
-                  </mat-select>
-                </mat-form-field>
-              </div>
-            </div>
-          --></div>
-          <div class="col">
             <div class="row center">
               <div class="col-1">
                 <span>Price</span>
               </div>
-              <div class="col">
+              <div class="col p-15">
                 <div class="full-width">
                   <ng5-slider
                     *ngIf="viewState.rangeSlider"
