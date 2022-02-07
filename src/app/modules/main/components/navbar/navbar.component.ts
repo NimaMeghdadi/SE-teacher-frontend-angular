@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl} from '@angular/forms';
+import { FormControl } from '@angular/forms';
+
 @Component({
-  selector: 'app-main',
-  templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss']
+  selector: 'app-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.scss']
 })
-export class MainComponent implements OnInit {
+export class NavbarComponent implements OnInit {
   toppings = new FormControl();
   languages = new FormControl();
 

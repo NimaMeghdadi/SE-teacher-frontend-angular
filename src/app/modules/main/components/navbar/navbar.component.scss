@@ -1,0 +1,36 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar {
+  width: 100%;
+}
+
+.login {
+  height: 54px;
+  width: 44px;
+  position: absolute;
+  right: 2%;
+}
+
+.oteacherIcon {
+  width: 50px;
+}
+
+.form {
+  width: 80px;
+  font-size: small;
+  height: 37px;
+  padding: 10px;
+}
+
+.search {
+  width: 130px;
+  font-size: small;
+  height: 37px;
+}
+
+.filter-text {
+  font: icon;
+  padding-top: 10px;
+}

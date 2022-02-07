@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MainComponent } from './main.component';
 import { MainRouting } from "./main.routing";
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
@@ -9,6 +8,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {ScrollingModule} from '@angular/cdk/scrolling';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { MainRoutingComponent } from './components/main-routing/main-routing.component';
 
 const Material_Module = [
   MatToolbarModule,
@@ -20,7 +21,8 @@ const Material_Module = [
 
 @NgModule({
   declarations: [
-    MainComponent
+    NavbarComponent,
+    MainRoutingComponent
   ],
   imports: [
     CommonModule,
