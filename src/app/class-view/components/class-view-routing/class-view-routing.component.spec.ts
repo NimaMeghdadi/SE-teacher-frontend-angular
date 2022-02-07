@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MainRoutingComponent } from './main-routing.component';
+import { ClassViewRoutingComponent } from './class-view-routing.component';
 
-describe('MainRoutingComponent', () => {
-  let component: MainRoutingComponent;
-  let fixture: ComponentFixture<MainRoutingComponent>;
+describe('ClassViewRoutingComponent', () => {
+  let component: ClassViewRoutingComponent;
+  let fixture: ComponentFixture<ClassViewRoutingComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MainRoutingComponent ]
+      declarations: [ ClassViewRoutingComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MainRoutingComponent);
+    fixture = TestBed.createComponent(ClassViewRoutingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

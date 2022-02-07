@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NavbarComponent } from './navbar.component';
+import { ClassSearchFilterComponent } from './class-search-filter.component';
 
-describe('NavbarComponent', () => {
-  let component: NavbarComponent;
-  let fixture: ComponentFixture<NavbarComponent>;
+describe('ClassSearchFilterComponent', () => {
+  let component: ClassSearchFilterComponent;
+  let fixture: ComponentFixture<ClassSearchFilterComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NavbarComponent ]
+      declarations: [ ClassSearchFilterComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NavbarComponent);
+    fixture = TestBed.createComponent(ClassSearchFilterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

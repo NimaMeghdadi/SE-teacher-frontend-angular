@@ -1,0 +1,58 @@
+.side-container {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 53px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  .toolbar {
+    margin: 0px 0px 0px 0px;
+    width: 31px;
+    padding-top: 9px;
+    height: 100%;
+    z-index: 1;
+    border-top-right-radius: 6px;
+    color: #fff;
+    background-color: #443d4a;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+
+    .toggle-active {
+      background-color: rgb(127, 5, 5);
+      // padding: 0;
+      min-width: 0;
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+      // line-height: 4px;
+       border-radius: 0%; 
+
+      border-top-right-radius: 17px;
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 20px;
+    }
+
+    .side-button:focus {
+      outline: none;
+    }
+  }
+
+  .sidenav-container {
+    flex: 1; //important causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts.
+    .sidenav {
+      background: #fdfdfd;
+      border: 1px solid rgb(0 0 0 / 26%);
+      border-radius: 5px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: 0px;
+      width: 300px;
+    }
+    .sidenav-content {
+      // padding: 5px;
+      background: white;
+    }
+  }
+}

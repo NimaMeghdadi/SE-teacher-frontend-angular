@@ -1,12 +1,12 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { ClassListComponent } from "./components/class-list/class-list.component";
-import { MainRoutingComponent } from "./components/main-routing/main-routing.component";
+import { ClassViewRoutingComponent } from "./components/class-view-routing/class-view-routing.component";
 
 const routes: Routes = [
   {
     path: "",
-    component: MainRoutingComponent,
+    component: ClassViewRoutingComponent,
     children: [
       { path: "", redirectTo: "list", pathMatch: "full" },
       {
@@ -21,4 +21,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class MainRouting {}
+export class ClassViewRoutingModule {}

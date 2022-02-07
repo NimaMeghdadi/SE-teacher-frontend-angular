@@ -1,0 +1,18 @@
+<div class="container h-100">
+  <div class="d-flex flex-column">
+    <div class="header">
+      <h5 class="text-bold m-0">Classes</h5>
+      <section></section>
+    </div>
+  </div>
+
+  <div class="divider my-2"></div>
+
+  <app-class-search-filter></app-class-search-filter>
+
+  <ng-container *ngFor="let item of list">
+    <div class="m-3">
+      <app-class-card [data]="item"></app-class-card>
+    </div>
+  </ng-container>
+</div>

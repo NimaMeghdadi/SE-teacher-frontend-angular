@@ -1,0 +1,38 @@
+<app-navbar></app-navbar>
+<div class="side-container">
+  <mat-toolbar class="toolbar d-flex flex-column">
+    <div
+      *ngFor="let button of toolbarToggleButtons"
+      class="side-button-container"
+    >
+      <button
+        mat-icon-button
+        class="side-button"
+        (click)="onToggleClick(snav, button.toggleMode)"
+        [matTooltip]="button.title"
+        [class.toggle-active]="toggleMode == button.toggleMode && snav.opened"
+      >
+        <mat-icon>{{ button.icon }}</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav
+      #snav
+      class="sidenav"
+      [mode]="mobileQuery.matches ? 'over' : 'side'"
+      [opened]="false"
+    >
+      <!-- <app-left-sidenav-manager
+          [sideMode]="toggleMode"
+          [sideOpened]="snav.opened"
+        ></app-left-sidenav-manager> -->
+      <app-project-info></app-project-info>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="sidenav-content">
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

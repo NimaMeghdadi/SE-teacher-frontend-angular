@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  selector: 'app-class-search-filter',
+  templateUrl: './class-search-filter.component.html',
+  styleUrls: ['./class-search-filter.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class ClassSearchFilterComponent implements OnInit {
   toppings = new FormControl();
   languages = new FormControl();
 
