@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  BASE_URL: "https://stageapi.dibuses.com/",
+  BASE_URL: "https://localhost:3000/",
   // BASE_URL: "http://192.168.2.138:8080/",
   APP_NAME: "",
   WSS_ENDPOINT: "ws://notification.dirides.com:6652",
