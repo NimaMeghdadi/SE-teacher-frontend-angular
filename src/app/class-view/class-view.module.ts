@@ -13,7 +13,10 @@ import { MatInputModule } from "@angular/material/input";
 import { ClassViewRoutingModule } from "./class-view.routing";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { ScrollingModule } from "@angular/cdk/scrolling";
+import { SearchBarComponent } from "./components/search-bar/search-bar.component";
+import { MatExpansionModule } from "@angular/material/expansion";
 import { SharedModule } from "@shared/shared.module";
+import { Ng5SliderModule } from "ng5-slider";
 
 const Material_Module = [
   MatToolbarModule,
@@ -22,6 +25,7 @@ const Material_Module = [
   MatSelectModule,
   MatButtonModule,
   MatInputModule,
+  MatExpansionModule,
 ];
 
 @NgModule({
@@ -30,6 +34,7 @@ const Material_Module = [
     ClassSearchFilterComponent,
     ClassListComponent,
     ClassCardComponent,
+    SearchBarComponent,
   ],
   imports: [
     CommonModule,
@@ -39,6 +44,7 @@ const Material_Module = [
     ReactiveFormsModule,
     ScrollingModule,
     SharedModule,
+    Ng5SliderModule
   ],
 })
 export class ClassViewModule {}
