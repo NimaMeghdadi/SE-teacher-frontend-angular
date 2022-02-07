@@ -1,0 +1,71 @@
+<div>
+  <mat-toolbar class="toolbar">
+    <mat-toolbar-row class="firstTollbar">
+      <span>Oteacher</span>
+      <!-- <img class="oteavherIcon" src="src/assets/main/oteacher.jpg" alt="oteacher-icon"> -->
+      <button mat-fab class="login">
+        <mat-icon aria-label="login">login</mat-icon>
+      </button>
+
+      <button
+        mat-icon-button
+        aria-label="Example icon button with a vertical three dot icon"
+      >
+        <mat-icon>login</mat-icon>
+      </button>
+    </mat-toolbar-row>
+
+    <mat-toolbar-row class="secondLine">
+      <mat-form-field class="form">
+        <mat-label>Language</mat-label>
+        <mat-select [formControl]="languages" multiple>
+          <mat-option
+            *ngFor="let languages of languageList"
+            [value]="languages"
+            >{{ languages }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="form">
+        <mat-label>price</mat-label>
+        <mat-select [formControl]="toppings" multiple>
+          <mat-option *ngFor="let topping of toppingList" [value]="topping">{{
+            topping
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="form">
+        <mat-label>goal</mat-label>
+        <mat-select [formControl]="toppings" multiple>
+          <mat-option *ngFor="let topping of toppingList" [value]="topping">{{
+            topping
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="search">
+        <input matInput placeholder="Ex. germany" />
+      </mat-form-field>
+
+      <button
+        mat-icon-button
+        aria-label="Example icon button with a heart icon"
+      >
+        <mat-icon><span class="search-icon"> search </span></mat-icon>
+      </button>
+
+      <button
+        mat-icon-button
+        color="warn"
+        aria-label="Example icon button with a heart icon"
+      >
+        <mat-icon
+          ><span class="no-filter-icon"> filter_alt_off </span></mat-icon
+        >
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <div></div>
+</div>

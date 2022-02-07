@@ -1,8 +1,8 @@
 export class toglleButtonInfo {
-  title: string;
-  icon: string;
-  toggleMode: string;
-  data?: any
+  title!: string;
+  icon!: string;
+  toggleMode!: string;
+  data?: any;
 }
 
 export let sideMenuButtons: Array<toglleButtonInfo> = [

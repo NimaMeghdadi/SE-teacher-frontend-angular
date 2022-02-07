@@ -12,7 +12,7 @@ import { NavbarItem, NAVBAR_CONFIG as navbarConfig } from '../../shared';
 })
 export class NavbarComponent implements OnInit {
   navbarItems = navbarConfig;
-  currentRoute: string;
+  currentRoute!: string;
   navItemsPos: any[] = [];
 
   constructor(private userService: UserService, private router: Router) {
@@ -29,7 +29,7 @@ export class NavbarComponent implements OnInit {
   setItemPos() {
     let temp = document.querySelectorAll('#nav-item');
     if (temp) {
-      let list = [];
+      let list:any = [];
       temp.forEach((el) => {
         list.push(el.getBoundingClientRect());
       });

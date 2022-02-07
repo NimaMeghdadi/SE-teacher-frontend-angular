@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
+import { Assistant } from "@shared/Assistant";
 import { BehaviorSubject, Observable } from "rxjs";
-import { Assistant } from "src/app/shared/Assistant";
 import { toglleButtonInfo } from "./models/toggleButtons";
 
 @Injectable({
@@ -12,8 +12,8 @@ export class LayoutService {
   private RightSideButttons$: BehaviorSubject<Array<toglleButtonInfo>>;
   private rightSidebarShown$: BehaviorSubject<boolean>;
   private selectStep$: BehaviorSubject<number>;
-  sideToggleButtons: Array<toglleButtonInfo>;
-  rightSideToggleButtons: Array<toglleButtonInfo>;
+  sideToggleButtons: Array<toglleButtonInfo> = [];
+  rightSideToggleButtons!: Array<toglleButtonInfo>;
   isAdmin: boolean = false;
 
   sellerToggleMenus: Array<toglleButtonInfo> = [
@@ -108,10 +108,10 @@ export class LayoutService {
     unshift?: boolean,
     data?: any
   ) {
-    if (unshift) {
+    if (unshift && buttonConfig) {
       this.sideToggleButtons.unshift(buttonConfig);
     } else {
-      this.sideToggleButtons.push(buttonConfig);
+      if (buttonConfig) this.sideToggleButtons.push(buttonConfig);
     }
     this.SideButttons$.next(this.sideToggleButtons);
   }

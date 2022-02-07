@@ -12,9 +12,9 @@ const routes: Routes = [
   {
     path: "",
     loadChildren: () =>
-      import("./modules/main/main.module").then((m) => m.MainModule),
+      import("./layout/layout.module").then((m) => m.LayoutModule),
+    // canActivate: [AuthGuard],
   },
-  // { path: "**", redirectTo: "dashboard" },
 ];
 
 @NgModule({

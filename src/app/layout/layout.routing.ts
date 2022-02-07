@@ -1,41 +1,22 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { LayoutComponent } from './components/layout/layout.component';
-import { MainPageComponent } from './components/main-page/main-page.component';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { LayoutComponent } from "./components/layout/layout.component";
+import { MainPageComponent } from "./components/main-page/main-page.component";
 
 const routes: Routes = [
   {
-    path: '',
+    path: "",
     component: LayoutComponent,
     children: [
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: "", redirectTo: "home", pathMatch: "full" },
       {
-        path: 'home',
+        path: "home",
         component: MainPageComponent,
       },
       {
-        path: 'publishers',
+        path: "",
         loadChildren: () =>
-          import('./../publishers/publishers.module').then(
-            (m) => m.PublishersModule
-          ),
-      },
-      {
-        path: 'books',
-        loadChildren: () =>
-          import('./../books/books.module').then((m) => m.BooksModule),
-      },
-      {
-        path: 'authors',
-        loadChildren: () =>
-          import('./../authors/authors.module').then((m) => m.AuthorsModule),
-      },
-      {
-        path: 'customers',
-        loadChildren: () =>
-          import('./../customers/customers.module').then(
-            (m) => m.CustomersModule
-          ),
+          import("../modules/main/main.module").then((m) => m.MainModule),
       },
     ],
   },

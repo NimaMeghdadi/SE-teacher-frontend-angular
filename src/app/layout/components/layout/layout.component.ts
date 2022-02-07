@@ -1,19 +1,19 @@
-import { MediaMatcher } from '@angular/cdk/layout';
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { LayoutService } from '../../shared/layout.service';
-import { toglleButtonInfo } from '../../shared/models/toggleButtons';
+import { MediaMatcher } from "@angular/cdk/layout";
+import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { LayoutService } from "../../shared/layout.service";
+import { toglleButtonInfo } from "../../shared/models/toggleButtons";
 
 @Component({
-  selector: 'app-layout',
-  templateUrl: './layout.component.html',
-  styleUrls: ['./layout.component.scss'],
+  selector: "app-layout",
+  templateUrl: "./layout.component.html",
+  styleUrls: ["./layout.component.scss"],
 })
 export class LayoutComponent implements OnInit {
-  toolbarToggleButtons: toglleButtonInfo[];
+  toolbarToggleButtons: toglleButtonInfo[] = [];
   mobileQuery: MediaQueryList;
-  toggleMode: string;
-  layoutMode;
+  toggleMode!: string;
+  layoutMode!: any;
 
   constructor(
     private changeDetectorRef: ChangeDetectorRef,
@@ -21,8 +21,8 @@ export class LayoutComponent implements OnInit {
     private router: Router,
     media: MediaMatcher
   ) {
-    this.mobileQuery = media.matchMedia('(max-width: 1100px)');
-    this.layoutSrvc.initLayout(true)
+    this.mobileQuery = media.matchMedia("(max-width: 1100px)");
+    this.layoutSrvc.initLayout(true);
   }
 
   ngOnInit() {
