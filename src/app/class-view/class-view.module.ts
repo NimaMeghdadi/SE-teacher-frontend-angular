@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { ClassViewRoutingComponent } from "./components/class-view-routing/class-view-routing.component";
-import { ClassSearchFilterComponent } from "./components/class-search-filter/class-search-filter.component";
+import { ClassSearchFilterComponent } from "./components/class-list/class-search-filter/class-search-filter.component";
 import { ClassListComponent } from "./components/class-list/class-list.component";
 import { ClassCardComponent } from "./components/class-list/class-card/class-card.component";
 import { MatToolbarModule } from "@angular/material/toolbar";
