@@ -5,6 +5,7 @@ import { TableField } from "dynamic-mat-table";
 import { BehaviorSubject } from "rxjs";
 import { map, take } from "rxjs/operators";
 import { Toaster } from "src/app/core/toast-notification";
+import { ProfileService } from "src/app/profile/shared";
 import { ActionItem } from "src/app/shared/components/action-list/action-list.component";
 import { UserModel } from "../../shared/models/user-list.model";
 import { ManagementService } from "../../shared/services/management.service";
@@ -19,24 +20,26 @@ export class UsersManagementComponent implements OnInit {
   model = [];
   form = new FormGroup({});
   formFields: FormlyFieldConfig[] = [];
+  roles = new BehaviorSubject<Array<any>>([]);
 
   tableFields: TableField<any>[] = [
     {
-      name: "fullName",
-      header: "Name",
+      name: "fname",
+      header: "F Name",
       cellEllipsisRow: 2,
     },
     {
-      name: "email",
+      name: "lname",
+      header: "L Name",
+      cellEllipsisRow: 2,
+    },
+    {
+      name: "gmail",
       header: "Email",
     },
     {
-      name: "province_state",
-      header: "State",
-    },
-    {
-      name: "city_town",
-      header: "City",
+      name: "Status",
+      header: "Status",
     },
   ];
   tableDataSource = new BehaviorSubject<any[]>([]);
@@ -44,16 +47,20 @@ export class UsersManagementComponent implements OnInit {
   actionItems: ActionItem[] = [
     { id: 1, text: "Add", matIcon: "add_box", tooltip: "Add" },
     { id: 2, text: "Modify", matIcon: "edit", tooltip: "Modify" },
-    { id: 3, text: "Delete", matIcon: "delete", tooltip: "Delete" },
+    { id: 3, text: "DeActive", matIcon: "do_disturb", tooltip: "DeActive" },
   ];
   constructor(
     private managementService: ManagementService,
+    private profileService: ProfileService,
     private toaster: Toaster
   ) {}
 
   ngOnInit(): void {
     this.getData();
     this.initForm();
+    this.profileService.getRoles().subscribe((data: any) => {
+      this.roles.next(data);
+    });
   }
 
   getData() {
@@ -85,7 +92,7 @@ export class UsersManagementComponent implements OnInit {
   }
 
   deleteItem(itemID) {
-    this.managementService.deleteUser(itemID).subscribe((res) => {
+    this.managementService.deActiveUser(itemID).subscribe((res) => {
       // if (res.success) {
       this.getData();
       // }
@@ -113,9 +120,9 @@ export class UsersManagementComponent implements OnInit {
       case "Add":
         this.tabIndex = 1;
         break;
-      case "Delete":
+      case "DeActive":
         if (this.selectedRows.length > 0) {
-          this.deleteItem(this.selectedRows[0].publisher_id);
+          this.deleteItem(this.selectedRows[0].gmail);
         } else {
           this.toaster.open({
             caption: "Event Message",
@@ -143,27 +150,27 @@ export class UsersManagementComponent implements OnInit {
         fieldGroup: [
           {
             className: "flex-50 padding-x-5",
-            key: "first_name",
+            key: "fname",
             type: "input",
             templateOptions: {
               required: true,
               appearance: "outline",
-              label: "first_name",
+              label: "first name",
             },
           },
           {
             className: "flex-50 padding-x-5",
-            key: "last_name",
+            key: "lname",
             type: "input",
             templateOptions: {
               required: true,
               appearance: "outline",
-              label: "last_name",
+              label: "last name",
             },
           },
           {
             className: "flex-50 padding-x-5",
-            key: "email",
+            key: "gmail",
             type: "input",
             templateOptions: {
               required: true,
@@ -173,85 +180,25 @@ export class UsersManagementComponent implements OnInit {
           },
           {
             className: "flex-50 padding-x-5",
-            key: "province_state",
+            key: "password",
             type: "input",
             templateOptions: {
               required: true,
+              type: "password",
               appearance: "outline",
-              label: "province_state",
+              label: "password",
             },
           },
           {
             className: "flex-50 padding-x-5",
-            key: "city_town",
-            type: "input",
+            key: "roleid",
+            type: "select",
             templateOptions: {
-              required: true,
+              options: this.roles,
+              labelProp: "title",
+              valueProp: "roleid",
               appearance: "outline",
-              label: "city_town",
-            },
-          },
-          {
-            className: "flex-50 padding-x-5",
-            key: "street",
-            type: "input",
-            templateOptions: {
-              required: true,
-              appearance: "outline",
-              label: "street",
-            },
-          },
-          {
-            className: "flex-50 padding-x-5",
-            key: "alley",
-            type: "input",
-            templateOptions: {
-              required: true,
-              appearance: "outline",
-              label: "alley",
-            },
-          },
-          {
-            className: "flex-50 padding-x-5",
-            key: "plaque_number",
-            type: "input",
-            templateOptions: {
-              required: true,
-              appearance: "outline",
-              type: "number",
-              label: "plaque_number",
-            },
-          },
-          {
-            className: "flex-50 padding-x-5",
-            key: "floor_number",
-            type: "input",
-            templateOptions: {
-              required: true,
-              appearance: "outline",
-              type: "number",
-              label: "floor_number",
-            },
-          },
-          {
-            className: "flex-50 padding-x-5",
-            key: "unit_number",
-            type: "input",
-            templateOptions: {
-              required: true,
-              appearance: "outline",
-              type: "number",
-              label: "unit_number",
-            },
-          },
-          {
-            className: "flex-50 padding-x-5",
-            key: "zipcode",
-            type: "input",
-            templateOptions: {
-              required: true,
-              appearance: "outline",
-              label: "zipcode",
+              label: "role",
             },
           },
         ],

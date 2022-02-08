@@ -10,8 +10,8 @@ export class ManagementService {
 
   getUsers() {
     return ApiRequest("GET", true)
-      .controller("publishers")
-      .action("")
+      .controller("management")
+      .action("user/search")
       .call(this.gs);
   }
 
@@ -20,6 +20,14 @@ export class ManagementService {
       .controller("publishers")
       .action("add")
       .addBodies(model)
+      .call(this.gs);
+  }
+  
+  deActiveUser(gmail) {
+    return ApiRequest("POST", true)
+      .controller("management")
+      .action("user/deactivate")
+      .addBody('gmail',gmail)
       .call(this.gs);
   }
 
