@@ -21,7 +21,16 @@ const routes: Routes = [
       {
         path: "professor",
         loadChildren: () =>
-          import("./../professors/professors.module").then((m) => m.ProfessorsModule),
+          import("./../professors/professors.module").then(
+            (m) => m.ProfessorsModule
+          ),
+      },
+      {
+        path: "management",
+        loadChildren: () =>
+          import("./../management/management.module").then(
+            (m) => m.ManagementModule
+          ),
       },
       {
         path: "",
