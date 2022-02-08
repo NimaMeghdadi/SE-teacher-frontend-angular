@@ -17,8 +17,8 @@ export class ManagementService {
 
   addUser(model) {
     return ApiRequest("POST", true)
-      .controller("publishers")
-      .action("add")
+      .controller("management")
+      .action("user/add")
       .addBodies(model)
       .call(this.gs);
   }
