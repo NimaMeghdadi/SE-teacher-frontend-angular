@@ -8,6 +8,11 @@ export const NAVBAR_CONFIG: NavbarConfig = {
       id: "list",
     },
     {
+      title: "Professor Management",
+      route: "professor",
+      id: "professor",
+    },
+    {
       title: "Login",
       route: "profile/login",
       id: "profile",

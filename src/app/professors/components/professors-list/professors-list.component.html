@@ -1,0 +1,75 @@
+<div class="d-flex flex-column h-100">
+  <mat-tab-group
+    class="flex-1"
+    header-less-tabs
+    dynamicHeight
+    [selectedIndex]="tabIndex"
+  >
+    <mat-tab label="first">
+      <div class="container h-100">
+        <div class="d-flex flex-column">
+          <div class="header">
+            <h5 class="text-bold m-0">Professor</h5>
+            <section></section>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+        <div class="d-flex h-100">
+          <dynamic-mat-table
+            class="flex-1"
+            tableName=""
+            [columns]="tableFields"
+            [sticky]="true"
+            [rowSelectionMode]="'single'"
+            [showNoData]="true"
+            (onRowEvent)="onRowSelect($event)"
+            [dataSource]="tableDataSource"
+          ></dynamic-mat-table>
+          <action-list
+            class="action-list ml-1"
+            [ActionItemList]="actionItems"
+            [hostWidth]="90"
+            [open]="false"
+            (actionClick)="onActionMenu($event)"
+          ></action-list>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="second">
+      <div class="container">
+        <h5 class="mr-3 mt-0 mb-1">Add/Edit Form</h5>
+        <hr class="mb-1 mt-2" />
+        <div class="">
+          <form [formGroup]="form" (ngSubmit)="onSubmitForm()">
+            <formly-form
+              [form]="form"
+              [fields]="formFields"
+              [model]="model"
+            ></formly-form>
+            <div class="d-flex flex-row justify-content-center mt-2 mb-1">
+              <button
+                mat-raised-button
+                color="warn"
+                class="mr-3"
+                type="button"
+                (click)="onCancel()"
+              >
+                Cancel
+              </button>
+              <button
+                [disabled]="form.invalid"
+                mat-raised-button
+                color="primary"
+                class="ml-3"
+                type="submit"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

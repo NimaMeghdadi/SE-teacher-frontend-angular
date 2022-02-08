@@ -14,14 +14,21 @@ const routes: Routes = [
         component: MainPageComponent,
       },
       {
-        path: 'profile',
+        path: "profile",
         loadChildren: () =>
-          import('./../profile/profile.module').then((m) => m.ProfileModule),
+          import("./../profile/profile.module").then((m) => m.ProfileModule),
+      },
+      {
+        path: "professor",
+        loadChildren: () =>
+          import("./../professors/professors.module").then((m) => m.ProfessorsModule),
       },
       {
         path: "",
         loadChildren: () =>
-          import("../class-view/class-view.module").then((m) => m.ClassViewModule),
+          import("../class-view/class-view.module").then(
+            (m) => m.ClassViewModule
+          ),
       },
     ],
   },
