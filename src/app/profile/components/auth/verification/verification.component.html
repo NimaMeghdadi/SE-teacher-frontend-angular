@@ -1,0 +1,30 @@
+<div class="wrapper">
+  <div class="content row">
+    <ng-container *ngIf="pending; else verified">
+      <div class="d-flex justify-content-center">
+        <span>
+          <img class="loading" src="../../../../../assets/images/loading.gif" />
+        </span>
+      </div>
+      <div class="text-center">
+        <h2 class="content-text-head pt-4">Verifying User ...</h2>
+      </div>
+    </ng-container>
+    <ng-template #verified>
+      <div class="text-center">
+        <h2 class="content-text-head">User Verified ...</h2>
+      </div>
+      <div class="text-center pt-4">
+        <button
+          mat-flat-button
+          class="content-login"
+          color="primary"
+          type="submit"
+          (click)="onLogin()"
+        >
+          Login
+        </button>
+      </div>
+    </ng-template>
+  </div>
+</div>

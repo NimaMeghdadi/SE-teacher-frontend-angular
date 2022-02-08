@@ -1,0 +1,48 @@
+$background-color: #f7f8f8;
+$text-color: #3e6357;
+
+.wrapper {
+  display: flex;
+  height: calc(100vh - 73px);
+  width: 100%;
+  background-color: $background-color;
+}
+
+.content {
+  height: 80%;
+  width: 80%;
+  margin: auto;
+  align-content: center;
+  background-color: #fff;
+  box-shadow: 0 0 10px 10px #efefef;
+  border-radius: 4px;
+  padding: 32px;
+
+  &-text {
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+
+    &-head {
+      color: #3e6357;
+      font-weight: bold;
+    }
+
+    &-body {
+      padding: 1rem 0;
+      font-size: large;
+      text-align: justify;
+      width: 80%;
+    }
+  }
+
+  &-login {
+    height: 45px;
+    background-color: #3e6357;
+  }
+}
+
+.loading {
+  height: 256px;
+}

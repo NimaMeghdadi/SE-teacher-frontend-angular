@@ -9,8 +9,8 @@ export const NAVBAR_CONFIG: NavbarConfig = {
     },
     {
       title: "Login",
-      route: "auth",
-      id: "auth",
+      route: "profile/login",
+      id: "profile",
     },
   ],
 };

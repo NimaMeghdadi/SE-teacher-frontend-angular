@@ -1,0 +1,96 @@
+<div class="wrapper">
+  <div class="content row">
+    <div class="col-lg-8 col-md-12 content-text">
+      <h2 class="content-text-head">Create New My Siegel Account</h2>
+      <p class="content-text-body">
+        Registration is free, and will allow you to take full advantage of the
+        Siegel website. You will receive an email from Siegel with a link to
+        activate your account. The link expires after 4 hours. We do this to
+        make sure you can receive emails from My Siegel.
+      </p>
+      <a routerLink="../login" class="content-text-login">
+        <strong> Already have an account? Click here. </strong>
+      </a>
+    </div>
+    <div class="col-lg-4 col-md-12 content-form">
+      <h3 class="content-form-title">Sign Up Form</h3>
+      <div class="divider"></div>
+      <form
+        [formGroup]="signupForm"
+        class="content-form-wrapper flex-container w-100"
+        (ngSubmit)="onSubmit()"
+      >
+        <mat-form-field appearance="outline" class="flex-50 px-1">
+          <mat-label>First Name</mat-label>
+          <input matInput formControlName="FirstName" />
+          <mat-error *ngIf="signupForm.get('FirstName').hasError('required')">
+            Field is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="flex-50 px-1">
+          <mat-label>Last Name</mat-label>
+          <input matInput formControlName="LastName" />
+          <mat-error *ngIf="signupForm.get('LastName').hasError('required')">
+            Field is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="flex-100 px-1">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" formControlName="Email" />
+          <mat-error *ngIf="signupForm.get('Email').hasError('required')">
+            Field is required
+          </mat-error>
+          <mat-error *ngIf="signupForm.get('Email').hasError('invalidEmail')">
+            Invalid Email
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="flex-100 px-1">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" formControlName="Password" />
+          <mat-error *ngIf="signupForm.get('Password').hasError('required')">
+            Field is required
+          </mat-error>
+          <mat-error *ngIf="signupForm.get('Password').hasError('minlength')">
+            Password must be at least 8 character
+          </mat-error>
+          <mat-error
+            *ngIf="signupForm.get('Password').hasError('invalidPassword')"
+          >
+            Password Should Contain Letters and Numbers
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="flex-100 px-1">
+          <mat-label>Confirm Password</mat-label>
+          <input matInput type="password" formControlName="ConfirmPassword" />
+          <mat-error
+            *ngIf="signupForm.get('ConfirmPassword').hasError('required')"
+          >
+            Field is required
+          </mat-error>
+          <mat-error
+            *ngIf="
+              !signupForm.get('ConfirmPassword').hasError('required') &&
+              signupForm.get('ConfirmPassword').hasError('passwordsNotMatching')
+            "
+          >
+            Confirm Password Doesn't match
+          </mat-error>
+        </mat-form-field>
+
+        <button
+          mat-flat-button
+          class="content-form-wrapper-submit"
+          color="primary"
+          [disabled]="signupForm.invalid"
+        >
+          Signup
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+<ng-template #required> Field is required </ng-template>

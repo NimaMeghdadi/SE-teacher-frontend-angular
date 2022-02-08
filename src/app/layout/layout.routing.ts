@@ -14,6 +14,11 @@ const routes: Routes = [
         component: MainPageComponent,
       },
       {
+        path: 'profile',
+        loadChildren: () =>
+          import('./../profile/profile.module').then((m) => m.ProfileModule),
+      },
+      {
         path: "",
         loadChildren: () =>
           import("../class-view/class-view.module").then((m) => m.ClassViewModule),

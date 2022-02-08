@@ -1,0 +1,52 @@
+<div class="wrapper">
+  <div class="content row">
+    <div class="col-lg-8 col-md-12 content-text">
+      <h2 class="content-text-head">Welcome to Online V Store</h2>
+      <p class="content-text-body">
+        Sign in to OVS
+      </p>
+      <a routerLink="../signup" class="content-text-signup">
+        <strong> Create New Account. Click here. </strong>
+      </a>
+    </div>
+    <div class="col-lg-4 col-md-12 content-form">
+      <h3 class="content-form-title">Login Form</h3>
+      <div class="divider"></div>
+      <form
+        [formGroup]="loginForm"
+        class="content-form-wrapper w-100"
+        (ngSubmit)="onLogin()"
+      >
+        <mat-form-field appearance="outline" class="w-100 px-1">
+          <mat-label>Username</mat-label>
+          <input matInput formControlName="UserName" />
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="w-100 px-1">
+          <mat-label>Password</mat-label>
+          <input matInput formControlName="Password" type="password" />
+        </mat-form-field>
+        <button
+          mat-flat-button
+          class="content-form-wrapper-submit"
+          color="primary"
+          type="submit"
+        >
+          Login
+        </button>
+        <div class="d-inline-flex w-100">
+          <mat-checkbox
+            class="content-form-wrapper-remember w-50"
+            color="primary"
+            >Remember me</mat-checkbox
+          >
+          <a
+            routerLink="../forgot-pass"
+            class="content-form-wrapper-forgot w-50"
+          >
+            <strong> Forgot your password? </strong>
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

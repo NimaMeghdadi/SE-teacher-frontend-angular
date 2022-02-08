@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="header">
+    <h3>User Profile</h3>
+    <button mat-stroked-button color="warn" (click)="onLogout()">
+      <mat-icon> logout</mat-icon>
+      Logout
+    </button>
+  </div>
+  <div class="divider"></div>
+  <nav mat-tab-nav-bar class="tabs mt-3">
+    <a
+      mat-tab-link
+      *ngFor="let tab of tabs"
+      [routerLink]="tab.route"
+      (click)="activeLink = tab.route"
+      [active]="activeLink == tab.route"
+    >
+      {{ tab.label }}
+    </a>
+  </nav>
+  <router-outlet></router-outlet>
+</div>
