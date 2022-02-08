@@ -12,6 +12,7 @@ import { ClassModel } from "../../models/class.model";
 })
 export class ClassListComponent implements OnInit {
   list: Array<ClassModel> = [];
+  loading = false;
   constructor(private gs: GlobalService) {}
 
   ngOnInit(): void {
@@ -20,22 +21,25 @@ export class ClassListComponent implements OnInit {
 
   getData() {
     //get data
-    this.onSearch({})
+    this.onSearch({});
   }
 
   onSearch(model: { [key: string]: string | number }) {
+    this.loading = true;
     ApiRequest("GET")
       .controller("classes")
       .action("search")
       .addParams(model)
-      .call(this.gs).pipe(
+      .call(this.gs)
+      .pipe(
         take(1),
-        map((res:any) => {
+        map((res: any) => {
           return res.map((el) => new ClassModel(el));
         })
       )
       .subscribe((resp) => {
-        this.list=resp
+        this.loading = false;
+        this.list = resp;
       });
   }
 }

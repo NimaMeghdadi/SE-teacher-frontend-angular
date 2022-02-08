@@ -8,10 +8,14 @@
 
   <div class="divider my-2"></div>
 
- <app-search-bar (onSearch)="onSearch($event)"></app-search-bar>
+  <app-search-bar (onSearch)="onSearch($event)"></app-search-bar>
+  
+  <div *ngIf="loading" class="d-flex justify-content-center mt-4">
+    <mat-spinner color="accent"></mat-spinner>
+  </div>
 
   <ng-container *ngFor="let item of list">
-    <div class="m-3">
+    <div class="m-2">
       <app-class-card [data]="item"></app-class-card>
     </div>
   </ng-container>

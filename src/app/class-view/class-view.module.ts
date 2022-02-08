@@ -16,6 +16,7 @@ import { SearchBarComponent } from "./components/class-list/search-bar/search-ba
 import { MatExpansionModule } from "@angular/material/expansion";
 import { Ng5SliderModule } from "ng5-slider";
 import { SharedModule } from "../shared/shared.module";
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 const Material_Module = [
   MatToolbarModule,
@@ -24,6 +25,7 @@ const Material_Module = [
   MatSelectModule,
   MatButtonModule,
   MatInputModule,
+  MatProgressSpinnerModule,
   MatExpansionModule,
 ];
 
