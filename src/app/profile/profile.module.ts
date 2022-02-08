@@ -23,6 +23,7 @@ import {
 } from "./components";
 import { AuthService, ProfileService } from "./shared";
 import { RouterModule } from "@angular/router";
+import { MatSelectModule } from "@angular/material/select";
 
 const MAT_MODULES = [
   MatFormFieldModule,
@@ -34,6 +35,7 @@ const MAT_MODULES = [
   MatTableModule,
   MatTooltipModule,
   MatPaginatorModule,
+  MatSelectModule
 ];
 
 @NgModule({

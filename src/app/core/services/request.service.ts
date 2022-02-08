@@ -285,7 +285,7 @@ export class RequestBuilder {
     }
   }
 
-  private handlePipeMap(resp: Response<any>) {
+  private handlePipeMap(resp: any) {
     return resp;
   }
 
