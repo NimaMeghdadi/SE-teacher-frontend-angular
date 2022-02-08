@@ -10,7 +10,7 @@ import { TabsConfig } from '../../shared';
 export class UserProfileComponent implements OnInit {
   tabs: TabsConfig[] = [
     {
-      label: 'Siegel News',
+      label: 'News',
       route: '/profile/dashboard/siegel-news',
     },
     {
