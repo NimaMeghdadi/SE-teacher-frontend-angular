@@ -22,19 +22,35 @@ export class ManagementService {
       .addBodies(model)
       .call(this.gs);
   }
-  
+
+  editUser(model) {
+    return ApiRequest("POST", true)
+      .controller("management")
+      .action("user/edit")
+      .addBodies(model)
+      .call(this.gs);
+  }
+
   deActiveUser(gmail) {
     return ApiRequest("POST", true)
       .controller("management")
       .action("user/deactivate")
-      .addBody('gmail',gmail)
+      .addBody("gmail", gmail)
+      .call(this.gs);
+  }
+
+  activeUser(gmail) {
+    return ApiRequest("POST", true)
+      .controller("management")
+      .action("user/activate")
+      .addBody("gmail", gmail)
       .call(this.gs);
   }
 
   deleteUser(publisher_id) {
     return ApiRequest("DELETE", true)
-      .controller("publishers")
-      .action("delete")
+      .controller("management")
+      .action("user/delete")
       .addParam("publisher_id", publisher_id)
       .call(this.gs);
   }

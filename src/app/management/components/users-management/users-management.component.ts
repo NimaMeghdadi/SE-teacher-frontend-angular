@@ -21,6 +21,7 @@ export class UsersManagementComponent implements OnInit {
   form = new FormGroup({});
   formFields: FormlyFieldConfig[] = [];
   roles = new BehaviorSubject<Array<any>>([]);
+  editMode = false;
 
   tableFields: TableField<any>[] = [
     {
@@ -47,7 +48,8 @@ export class UsersManagementComponent implements OnInit {
   actionItems: ActionItem[] = [
     { id: 1, text: "Add", matIcon: "add_box", tooltip: "Add" },
     { id: 2, text: "Modify", matIcon: "edit", tooltip: "Modify" },
-    { id: 3, text: "DeActive", matIcon: "do_disturb", tooltip: "DeActive" },
+    { id: 3, text: "DeActivate", matIcon: "do_disturb", tooltip: "DeActivate" },
+    { id: 3, text: "Activate", matIcon: "check_circle", tooltip: "Activate" },
   ];
   constructor(
     private managementService: ManagementService,
@@ -78,16 +80,26 @@ export class UsersManagementComponent implements OnInit {
   }
 
   onSubmitForm() {
-    this.managementService.addUser(this.model).subscribe((res: any) => {
-      // if (res[0].publisher_add) {
-      this.getData();
-      this.onCancel();
-      // }
-    });
+    if (!this.editMode){
+      this.managementService.addUser(this.model).subscribe((res: any) => {
+        // if (res[0].publisher_add) {
+        this.getData();
+        this.onCancel();
+        // }
+      });
+    } else {
+      this.managementService.editUser(this.model).subscribe((res: any) => {
+        // if (res[0].publisher_add) {
+        this.getData();
+        this.onCancel();
+        // }
+      })
+    }
   }
 
   initEditData(data) {
     this.tabIndex = 1;
+    this.editMode = true;
     this.model = { ...data };
   }
 
@@ -99,9 +111,18 @@ export class UsersManagementComponent implements OnInit {
     });
   }
 
+  activeItem(itemID) {
+    this.managementService.activeUser(itemID).subscribe((res) => {
+      // if (res.success) {
+      this.getData();
+      // }
+    });
+  }
+
   onCancel() {
     this.tabIndex = 0;
     this.model = [];
+    this.editMode = false;
     this.form.reset();
     this.form.markAsUntouched();
   }
@@ -120,9 +141,19 @@ export class UsersManagementComponent implements OnInit {
       case "Add":
         this.tabIndex = 1;
         break;
-      case "DeActive":
+      case "DeActivate":
         if (this.selectedRows.length > 0) {
           this.deleteItem(this.selectedRows[0].gmail);
+        } else {
+          this.toaster.open({
+            caption: "Event Message",
+            text: "Please select an item",
+          });
+        }
+        break;
+      case "Activate":
+        if (this.selectedRows.length > 0) {
+          this.activeItem(this.selectedRows[0].gmail);
         } else {
           this.toaster.open({
             caption: "Event Message",
